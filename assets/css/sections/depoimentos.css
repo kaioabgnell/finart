@@ -1,0 +1,208 @@
+.depoimentos {
+  background: var(--background);
+  overflow: hidden;
+}
+
+/* ── CTA Banner ───────────────────────────────── */
+.cta-banner {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  padding-block: clamp(3rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30px,
+    rgba(255,255,255,.03) 30px,
+    rgba(255,255,255,.03) 31px
+  );
+}
+
+.cta-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-banner__text h2 {
+  color: var(--surface);
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  margin-bottom: var(--space-2);
+}
+
+.cta-banner__text p {
+  color: rgba(255,255,255,.8);
+  font-size: var(--text-md);
+}
+
+/* ── Carrossel ────────────────────────────────── */
+.carousel {
+  position: relative;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform var(--transition-slow);
+  will-change: transform;
+}
+
+.carousel__slide {
+  min-width: 100%;
+  padding: var(--space-2);
+}
+
+.depoimento-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-2);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.depoimento-item {
+  padding: var(--space-8);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  border: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: all var(--transition-base);
+}
+
+.depoimento-item:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-3px);
+  border-color: var(--primary-100);
+}
+
+.depoimento-item .stars {
+  font-size: var(--text-base);
+}
+
+.depoimento-item blockquote {
+  font-size: var(--text-sm);
+  color: var(--on-surface-var);
+  line-height: 1.8;
+  font-style: italic;
+  flex: 1;
+}
+
+.depoimento-item blockquote::before {
+  content: '"';
+  font-size: 2.5rem;
+  color: var(--primary-100);
+  font-family: Georgia, serif;
+  line-height: 0;
+  vertical-align: -0.6rem;
+  margin-right: 4px;
+}
+
+.depoimento-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--divider);
+}
+
+.depoimento-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--on-primary);
+  flex-shrink: 0;
+}
+
+.depoimento-avatar--blue   { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+.depoimento-avatar--red    { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+.depoimento-avatar--green  { background: linear-gradient(135deg, #2E7D32, #66BB6A); }
+.depoimento-avatar--orange { background: linear-gradient(135deg, #E65100, #FFA726); }
+.depoimento-avatar--purple { background: linear-gradient(135deg, #6A1B9A, #AB47BC); }
+
+.depoimento-author__info strong {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.depoimento-author__info span {
+  font-size: var(--text-xs);
+  color: var(--muted);
+}
+
+/* Controles do carrossel */
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.carousel__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--divider);
+  background: var(--surface);
+  color: var(--on-surface-var);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.carousel__btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--shadow-primary);
+}
+
+.carousel__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--divider);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+}
+
+.carousel__dot.active {
+  background: var(--primary);
+  width: 24px;
+}
